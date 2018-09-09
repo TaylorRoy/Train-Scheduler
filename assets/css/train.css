@@ -1,0 +1,14 @@
+.title-area {
+    background-color: blue;
+    text-align: center;
+}
+
+.schedule-title {
+    background-color: green;
+    text-align: center;
+}
+
+.add-train-title {
+    background-color: red;
+    text-align: center;
+}
