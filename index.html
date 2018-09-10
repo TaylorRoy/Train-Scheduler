@@ -20,6 +20,9 @@
     <!-- link to Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
+    <!-- Link to Moment JS -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
 
 </head>
 
@@ -38,7 +41,18 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2 class="schedule-title">Current Train Schedule</h2>
-                    <div class="current-train-info"></div>
+                    <div class="row">
+                        <div class="col-lg-2">Train Name</div>
+                        <div class="col-lg-2">Destination</div>
+                        <div class="col-lg-2">First Arrival(HH:mm)</div>
+                        <div class="col-lg-2">Frequency(mins)</div>
+                        <div class="col-lg-2">Next Arrival(mins)</div>
+                        <div class="col-lg-2">Minutes to Arrival</div>
+                    </div>
+                        
+                    <div class="current-train-info col-lg-12">
+                        <!-- new train data goes here -->
+                    </div>
                 </div>
             </div>
         </div>
