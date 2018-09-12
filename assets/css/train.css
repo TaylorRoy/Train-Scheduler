@@ -1,3 +1,18 @@
+p {
+   font-size: 20px; 
+} 
+
+.background-pattern {
+    background-image: url("./assets/images/train_station.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+
+.container {
+    width:80%;
+}
+
 .title-area {
     background-color: blue;
     text-align: center;
@@ -12,3 +27,34 @@
     background-color: red;
     text-align: center;
 }
+
+.current-train-area {
+    background-color: #fff;
+}
+
+.header {
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+.current-train-info {
+background-color: #fff;
+}
+
+.table-data {
+    text-align: center;
+}
+
+.add-train-form {
+    background-color: #fff;
+}
+
+/* .form-control {
+    width: 80%;
+} */
+
+.submit {
+    background-color: #209b20;
+}
+

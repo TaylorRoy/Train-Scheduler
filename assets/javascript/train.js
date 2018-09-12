@@ -29,26 +29,40 @@ $(".submit").on("click", function (event) {
   firstTime = $(".first-train-time").val().trim();
   frequency = $(".frequency").val().trim();
 
-  console.log(trainName);
-  console.log(destination);
-  console.log(firstTime);
-  console.log(frequency);
+  if (trainName.length === 0 || destination.length === 0 || firstTime.length === 0 || frequency.length === 0){
+    console.log(trainName.length);
+    console.log(destination.length);
+    console.log(firstTime.length);
+    console.log(frequency.length);
+    // console.log(firstTime.toString.length);
+    // console.log(frequency.toString.length);
 
-  //pushing data to firebase.  push allows us to add multiple children- instead of "set", which replaces old data one-at-a-time
-  database.ref().push({
-    name: trainName,
-    destination: destination,
-    firstTime: firstTime,
-    frequency: frequency,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
+    alert("You left some fields empty.  Try again.");
+    return;
+  }
+  else{
+
+    console.log(trainName);
+    console.log(destination);
+    console.log(firstTime);
+    console.log(frequency);
+    
+    //pushing data to firebase.  push allows us to add multiple children- instead of "set", which replaces old data one-at-a-time
+    database.ref().push({
+      name: trainName,
+      destination: destination,
+      firstTime: firstTime,
+      frequency: frequency,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+    
+    //setting the fields back to blank after submitting data to firebase
+    $(".train-name").val("");
+    $(".destination").val("");
+    $(".first-train-time").val("");
+    $(".frequency").val("");
+  }
   });
-
-  //setting the fields back to blank after submitting data to firebase
-  $(".train-name").val("");
-  $(".destination").val("");
-  $(".first-train-time").val("");
-  $(".frequency").val("");
-});
 
 //get firebase to report data every time a child is added.  Also calling moment.js to calculate minutes remaining and next arrival time
 database.ref().on("child_added", function (childSnapshot) {
@@ -88,12 +102,12 @@ database.ref().on("child_added", function (childSnapshot) {
 
   //adding data to html dom
   var newDiv = $("<div>").addClass("row").append(
-    $("<div>").addClass("col-lg-2").text(trainName),
-    $("<div>").addClass("col-lg-2").text(destination),
-    $("<div>").addClass("col-lg-2").text(firstTime),
-    $("<div>").addClass("col-lg-2").text(frequency),
-    $("<div>").addClass("col-lg-2").text(minutesUntilArrival),
-    $("<div>").addClass("col-lg-2").text(arrivalTime.format("hh:mm"))
+    $("<div>").addClass("table-data col-lg-2").text(trainName),
+    $("<div>").addClass("table-data col-lg-2").text(destination),
+    $("<div>").addClass("table-data col-lg-2").text(firstTime),
+    $("<div>").addClass("table-data col-lg-2").text(frequency),
+    $("<div>").addClass("table-data col-lg-2").text(minutesUntilArrival),
+    $("<div>").addClass("table-data col-lg-2").text(arrivalTime.format("hh:mm"))
   );
 
   //appending to html dom
