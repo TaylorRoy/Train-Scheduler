@@ -12,7 +12,7 @@
         crossorigin="anonymous">
 
     <!--link to Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Bowlby+One+SC" rel="stylesheet">  
 
     <!--links css file to html file-->
     <link rel="stylesheet" href="./assets/css/train.css">
@@ -35,52 +35,74 @@
             </div>
         </div>
     </div>
-    <div class="background-pattern" style="background-image:url(./assets/images/train_station.jpg)">
+    <div class="background-pattern" style="background-image:url(./assets/images/tracks.jpg)">
         <div class="container">
 
 
             <div class="current-train-area">
                 <div class="row">
+
+                        <form id="add-train-form">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h2 class="add-train-title col-md-12">Add Train</h2>
+                                        <div class="input-description col-md-3">
+                                            <p>Train Name</p>
+                                            <input id="train-name" class="train-name form-control" type="text" placeholder="Train Name">
+                                        </div>
+                                        <div class="input-description col-md-2">
+                                            <p>Destination</p>
+                                            <input class="destination form-control" type="text" placeholder="Destination">
+                                        </div>
+                                        <div class="input-description col-md-3">
+                                            <p>First Arrival</p>
+                                            <input class="first-train-time form-control" type="text" placeholder="Time- HH:mm">
+                                        </div>
+                                        <div class="input-description col-md-4">
+                                            <p>Frequency (Minutes)</p>
+                                            <input class="frequency form-control" type="text" placeholder="Minutes">
+                                        </div>
+                                        <div class="submit-area col-md-12">
+                                            <input class="submit btn btn-secondary btn-lg" type="submit" value="submit">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
                     <div class="col-lg-12">
                         <h2 class="schedule-title">Current Train Schedule</h2>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="header col-lg-2">Train Name</div>
                             <div class="header col-lg-2">Destination</div>
                             <div class="header col-lg-2">First Arrival(HH:mm)</div>
                             <div class="header col-lg-2">Frequency(mins)</div>
                             <div class="header col-lg-2">Next Arrival(mins)</div>
                             <div class="header col-lg-2">Minutes to Arrival</div>
-                        </div>
+                        </div> -->
+                        <table style="width:100%">
 
-                        <div class="current-train-info col-lg-12">
-                            <!-- new train data goes here -->
-                        </div>
+                            <tr class="row">
+                                <th class="header col-lg-2">Train Name</th>
+                                <th class="header col-lg-2">Destination</th>
+                                <th class="header col-lg-2">First Arrival(HH:mm)</th>
+                                <th class="header col-lg-2">Frequency(mins)</th>
+                                <th class="header col-lg-2">Next Arrival(mins)</th>
+                                <th class="header col-lg-2">Minutes to Arrival</th>
+                            </tr>
+
+                            <tr class="current-train-info col-lg-12">
+                                <!-- new train data goes here -->
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <form class="add-train-form">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="add-train-title">Add Train</h2>
-                        <p>Train Name</p>
-                        <input class="train-name form-control col-lg-12" type="text" placeholder="Enter Train Name">
-                        <p>Destination</p>
-                        <input class="destination form-control col-lg-12" type="text" placeholder="Enter Destination">
-                        <p>First Train Time (Use Military Time- HH:mm)</p>
-                        <input class="first-train-time form-control col-lg-12" type="text" placeholder="Enter First Train Time- HH:mm (military time)">
-                        <p>Frequency (Minutes)</p>
-                        <input class="frequency form-control col-lg-12" type="text" placeholder="Frequency(mins)">
-                        <input class="submit btn btn-secondary btn-lg" type="submit" value="submit">
-
-                    </div>
-
-                </div>
-            </form>
+            
         </div>
     </div>
 
-
+    
 
     <!--links JQuery to HTML file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

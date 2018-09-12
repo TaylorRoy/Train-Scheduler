@@ -1,3 +1,12 @@
+//function to get cursor to automatically go to train name input field of form
+function setFocus() {
+  var input = document.getElementById("train-name");
+  input.focus();
+}
+
+// gets cursor to return to train name input field
+setFocus();
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyCFaXvnaHL3JsKa8rsUtkAxFiUJBsPm9bQ",
@@ -28,8 +37,9 @@ $(".submit").on("click", function (event) {
   destination = $(".destination").val().trim();
   firstTime = $(".first-train-time").val().trim();
   frequency = $(".frequency").val().trim();
+  console.log(typeof frequency);
 
-  if (trainName.length === 0 || destination.length === 0 || firstTime.length === 0 || frequency.length === 0){
+  if (trainName.length === 0 || destination.length === 0 || firstTime.length === 0 || frequency.length === 0) {
     console.log(trainName.length);
     console.log(destination.length);
     console.log(firstTime.length);
@@ -39,14 +49,21 @@ $(".submit").on("click", function (event) {
 
     alert("You left some fields empty.  Try again.");
     return;
+    
   }
-  else{
+  else if (typeof parseInt(frequency) != "number"|| "NaN" ) {
+    alert("Enter a numberic value for First Arrival and Frequency.");
+    return;
+  }
+
+  // || typeof parseInt(firstTime.replace(":", "") != "number"
+  else {
 
     console.log(trainName);
     console.log(destination);
     console.log(firstTime);
     console.log(frequency);
-    
+
     //pushing data to firebase.  push allows us to add multiple children- instead of "set", which replaces old data one-at-a-time
     database.ref().push({
       name: trainName,
@@ -55,14 +72,14 @@ $(".submit").on("click", function (event) {
       frequency: frequency,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
-    
+
     //setting the fields back to blank after submitting data to firebase
     $(".train-name").val("");
     $(".destination").val("");
     $(".first-train-time").val("");
     $(".frequency").val("");
   }
-  });
+});
 
 //get firebase to report data every time a child is added.  Also calling moment.js to calculate minutes remaining and next arrival time
 database.ref().on("child_added", function (childSnapshot) {
@@ -111,5 +128,9 @@ database.ref().on("child_added", function (childSnapshot) {
   );
 
   //appending to html dom
-  $(".current-train-info").append(newDiv);
+  $(".current-train-info").prepend(newDiv);
+
+  // gets cursor to return to train name input field
+  setFocus()
 });
+

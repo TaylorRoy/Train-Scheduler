@@ -2,6 +2,10 @@ p {
    font-size: 20px; 
 } 
 
+input {
+    float: left;
+}
+
 .background-pattern {
     background-image: url("./assets/images/train_station.jpg");
     background-repeat: no-repeat;
@@ -11,20 +15,30 @@ p {
 
 .container {
     width:80%;
+    height: auto;
+    min-height:600px;
 }
 
 .title-area {
-    background-color: blue;
+    background-color: #555c68;
     text-align: center;
+    border-bottom-style: solid;
+    border-bottom-width: 6px;
+}
+
+.title {
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 60px;
+    color: #fff;
 }
 
 .schedule-title {
-    background-color: green;
+    background-color:#b8bcbc;
     text-align: center;
 }
 
 .add-train-title {
-    background-color: red;
+    background-color: #b8bcbc;
     text-align: center;
 }
 
@@ -46,15 +60,28 @@ background-color: #fff;
     text-align: center;
 }
 
-.add-train-form {
+#add-train-form {
     background-color: #fff;
+    padding-bottom: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
-/* .form-control {
-    width: 80%;
-} */
+.input-description {
+    float: left;
+    /* height:auto; */
+    width: 100%;
+}
 
+
+
+.submit-area {
+    display:block;
+   align-content: center;
+   width: 100%
+}
 .submit {
-    background-color: #209b20;
+    background-color: #209b20; 
+    margin-top: 14px;
 }
 
