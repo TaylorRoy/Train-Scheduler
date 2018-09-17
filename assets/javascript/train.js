@@ -37,7 +37,8 @@ $(".submit").on("click", function (event) {
   destination = $(".destination").val().trim();
   firstTime = $(".first-train-time").val().trim();
   frequency = $(".frequency").val().trim();
-  console.log(typeof frequency);
+  console.log("type of freq " + typeof frequency);
+  console.log("type of first " + typeof parseInt(firstTime.replace(":", "")));
 
   if (trainName.length === 0 || destination.length === 0 || firstTime.length === 0 || frequency.length === 0) {
     console.log(trainName.length);
@@ -51,7 +52,7 @@ $(".submit").on("click", function (event) {
     return;
     
   }
-  else if (typeof parseInt(frequency) != "number"|| "NaN" ) {
+  else if (typeof parseInt(frequency) != "number" ) {
     alert("Enter a numberic value for First Arrival and Frequency.");
     return;
   }

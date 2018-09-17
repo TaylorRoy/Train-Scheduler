@@ -54,10 +54,15 @@ input {
 
 .current-train-info {
 background-color: #fff;
+margin-left: 0px;
+margin-right: 0px;
+align-content: center;
+
 }
 
 .table-data {
     text-align: center;
+    width:500px;
 }
 
 #add-train-form {
